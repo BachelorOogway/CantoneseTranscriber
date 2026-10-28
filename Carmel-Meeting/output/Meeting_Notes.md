@@ -13,7 +13,7 @@ Yes, but today we have 19,500 yuan
 [00:00:12 - 00:00:12] Speaker 4
 19,000 yuan?
 
-[00:00:12 - 00:00:14] Speaker 2
+[00:00:12 - 00:00:14]
 Yes
 
 [00:00:14 - 00:00:24] Speaker 2

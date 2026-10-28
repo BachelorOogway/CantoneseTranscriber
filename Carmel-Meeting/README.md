@@ -1,8 +1,10 @@
 # Carmel Meeting Transcription (local)
 
-A simple tool that turns **one** meeting recording into two readable files on this computer. It works offline after models are downloaded. No cloud transcription service.
+A simple tool that turns meeting audio into readable files on this computer. It works offline after models are downloaded. No cloud transcription service.
 
-## How to use (every time)
+There are **two modes**. The original batch mode is unchanged.
+
+## A) Batch (after the meeting) — existing
 
 1. Put **ONE** recording into the `input` folder.  
    Allowed types: `.mp3`, `.wav`, `.m4a`, `.mp4`, `.mov`
@@ -22,8 +24,30 @@ A simple tool that turns **one** meeting recording into two readable files on th
    - Are the **speaker labels** right? (they are estimates only)
    - Is the **English draft** good enough? (it is machine-made and may miss Cantonese/Mandarin details)
 
+## B) Live (during the meeting) — new
+
+Near-real-time: the computer listens to the **microphone**, automatically splits on short silence (or about every 3–8 seconds), and scrolls text in the window. **You do not cut audio yourself.**
+
+1. Start live mode:
+   - **Windows:** double-click `run_live.bat`
+   - **Mac / Linux:** `sh run_live.sh`
+
+2. If asked, pick a microphone device number.
+
+3. Speak. After a short pause, lines appear in the terminal (typical delay a few seconds).
+
+4. Press **Ctrl+C** to stop.
+
+5. Open `live_output/Transcript_live.txt`. A full `live_recording_*.wav` is also saved there.
+
+6. **Optional (recommended after the meeting):** copy that `.wav` into `input/`, then use `run.bat` / `run.sh` for speaker labels + English draft + meeting notes.
+
+Live mode defaults to **SPEED** (faster). For higher accuracy (slower): `run_live.bat --quality` or `sh run_live.sh --quality`.  
+List mics: `run_live.bat --list-devices`
+
 ## Notes
 
-- Future recordings: same steps — replace the file in `input`, run again, open the two outputs. You do **not** edit any Python code.
-- Optional faster run (less accurate): `run.bat --speed` or `sh run.sh --speed`
+- Future recordings (batch): same steps — replace the file in `input`, run again, open the two outputs. You do **not** edit any Python code.
+- Optional faster batch run (less accurate): `run.bat --speed` or `sh run.sh --speed`
 - Decisions and action items are **not** filled in automatically — please write them yourself after review.
+- Live and batch use separate folders (`live_output/` vs `output/`) so a batch run does not delete the live transcript.
