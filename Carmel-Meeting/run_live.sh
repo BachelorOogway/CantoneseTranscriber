@@ -32,7 +32,9 @@ if [ "$ERR" -ne 0 ]; then
   exit "$ERR"
 fi
 
-echo "When finished, open live_output/Transcript_live.txt"
-echo "Optional: copy the live_recording_*.wav into input/ and use run.sh"
+echo "When finished, open the matching pair in live_output/:"
+echo "  Transcript_live_YYYYMMDD_HHMMSS.txt"
+echo "  live_recording_YYYYMMDD_HHMMSS.wav"
+echo "Optional: copy that wav into input/ and use run.sh"
 echo ""
 exit 0

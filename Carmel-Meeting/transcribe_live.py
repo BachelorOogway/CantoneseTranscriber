@@ -47,7 +47,6 @@ def safe_device_name(name: str) -> str:
 
 ROOT = Path(__file__).resolve().parent
 LIVE_DIR = ROOT / "live_output"
-TRANSCRIPT_LIVE = "Transcript_live.txt"
 SR = 16000
 FRAME_MS = 30
 FRAME_SAMPLES = SR * FRAME_MS // 1000  # 480 @ 16 kHz
@@ -305,14 +304,15 @@ def run_live(
 
     stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     LIVE_DIR.mkdir(parents=True, exist_ok=True)
-    transcript_path = LIVE_DIR / TRANSCRIPT_LIVE
+    # One session → one pair sharing the same stamp
     wav_path = LIVE_DIR / f"live_recording_{stamp}.wav"
-    # Fresh transcript header each session (overwrite)
+    transcript_path = LIVE_DIR / f"Transcript_live_{stamp}.txt"
     transcript_path.write_text(
         "LIVE TRANSCRIPT (auto-split; not speaker-labeled)\n"
+        f"Session id: {stamp}\n"
         f"Started: {datetime.now().isoformat(timespec='seconds')}\n"
         f"Model: {choice.name} / {choice.device} / {choice.mode}\n"
-        f"Full recording (for later batch): {wav_path.name}\n"
+        f"Paired recording: {wav_path.name}\n"
         "Press Ctrl+C to stop.\n"
         "----\n",
         encoding="utf-8",

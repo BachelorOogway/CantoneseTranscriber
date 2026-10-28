@@ -39,8 +39,10 @@ if %ERR% neq 0 (
   exit /b %ERR%
 )
 
-echo When finished, open live_output\Transcript_live.txt
-echo Optional: copy the live_recording_*.wav into input\ and use run.bat
+echo When finished, open the matching pair in live_output\:
+echo   Transcript_live_YYYYMMDD_HHMMSS.txt
+echo   live_recording_YYYYMMDD_HHMMSS.wav
+echo Optional: copy that wav into input\ and use run.bat
 echo.
 pause
 endlocal

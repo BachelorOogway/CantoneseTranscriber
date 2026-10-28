@@ -38,7 +38,9 @@ Near-real-time: the computer listens to the **microphone**, automatically splits
 
 4. Press **Ctrl+C** to stop.
 
-5. Open `live_output/Transcript_live.txt`. A full `live_recording_*.wav` is also saved there.
+5. Each live session writes a **matched pair** in `live_output/` (same timestamp):
+   - `Transcript_live_YYYYMMDD_HHMMSS.txt`
+   - `live_recording_YYYYMMDD_HHMMSS.wav`
 
 6. **Optional (recommended after the meeting):** copy that `.wav` into `input/`, then use `run.bat` / `run.sh` for speaker labels + English draft + meeting notes.
 
